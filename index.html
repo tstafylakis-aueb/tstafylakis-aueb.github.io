@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Themos Stafylakis — Associate Professor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2744; --navy-mid: #243258; --accent: #2563c4; --accent-light: #d6e4ff;
+    --gold: #b8943f; --text: #1e2533; --text-mid: #4a5568; --text-light: #718096;
+    --border: #e2e8f0; --bg: #f9fafc; --white: #ffffff; --section-gap: 5rem;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; font-weight: 300; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(26,39,68,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0 2rem; height: 58px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-brand { font-family: 'Lora', serif; font-weight: 500; color: #fff; font-size: 1rem; letter-spacing: 0.01em; text-decoration: none; }
+  .nav-brand span { color: var(--gold); }
+  .nav-links { display: flex; gap: 0.25rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.82rem; font-weight: 400; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.35rem 0.75rem; border-radius: 4px; transition: color 0.2s, background 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: #fff; background: rgba(255,255,255,0.1); }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; }
+  .nav-toggle span { display: block; width: 22px; height: 2px; background: #fff; margin: 4px 0; border-radius: 2px; }
+
+  #home { min-height: 100vh; background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 50%, #1e3a6e 100%); display: flex; align-items: center; padding: 80px 2rem 60px; position: relative; overflow: hidden; }
+  #home::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 40%, rgba(37,99,196,0.18) 0%, transparent 60%); pointer-events: none; }
+  #home::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 80px; background: linear-gradient(to bottom, transparent, var(--bg)); pointer-events: none; }
+  .hero-inner { max-width: 1060px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: auto 1fr; gap: 3.5rem; align-items: center; animation: fadeUp 0.8s ease both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-photo { width: 190px; height: 190px; border-radius: 50%; border: 3px solid rgba(255,255,255,0.2); box-shadow: 0 8px 40px rgba(0,0,0,0.45); flex-shrink: 0; overflow: hidden; background: var(--navy-mid); }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 50%; }
+  .hero-text { color: #fff; }
+  .hero-name { font-family: 'Lora', serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 500; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 0.5rem; }
+  .hero-title { font-size: 0.95rem; font-weight: 400; color: var(--gold); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 1.2rem; }
+  .hero-affiliations { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 1.5rem; }
+  .affil { font-size: 0.88rem; color: rgba(255,255,255,0.72); display: flex; align-items: flex-start; gap: 0.5rem; }
+  .affil::before { content: '›'; color: var(--gold); font-weight: 600; flex-shrink: 0; }
+  .hero-bio { font-size: 0.9rem; color: rgba(255,255,255,0.65); max-width: 560px; line-height: 1.75; margin-bottom: 1.8rem; }
+  .hero-links { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .hero-btn { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.5rem 1.1rem; border-radius: 5px; font-size: 0.82rem; font-weight: 400; letter-spacing: 0.03em; text-decoration: none; transition: all 0.2s; }
+  .hero-btn.primary { background: var(--accent); color: #fff; border: 1px solid transparent; }
+  .hero-btn.primary:hover { background: #1e4fa8; }
+  .hero-btn.secondary { background: transparent; color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.25); }
+  .hero-btn.secondary:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.5); color: #fff; }
+  .hero-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+  section { padding: var(--section-gap) 2rem; }
+  .container { max-width: 1060px; margin: 0 auto; width: 100%; }
+  .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem; }
+  .section-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 500; font-family: 'DM Mono', monospace; flex-shrink: 0; }
+  .section-line { flex: 1; height: 1px; background: var(--border); }
+  h2 { font-family: 'Lora', serif; font-size: clamp(1.5rem, 2.5vw, 1.9rem); font-weight: 500; color: var(--navy); margin-bottom: 1rem; line-height: 1.25; }
+
+  #research { background: var(--white); }
+  .research-intro { font-size: 1rem; color: var(--text-mid); max-width: 720px; line-height: 1.8; margin-bottom: 2rem; }
+  .research-areas { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; }
+  .research-card { background: var(--bg); border: 1px solid var(--border); border-top: 3px solid var(--accent); border-radius: 6px; padding: 1.3rem 1.4rem; transition: transform 0.2s, box-shadow 0.2s; }
+  .research-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.07); }
+  .research-card h3 { font-family: 'Lora', serif; font-size: 0.95rem; font-weight: 600; color: var(--navy); margin-bottom: 0.4rem; }
+  .research-card p { font-size: 0.84rem; color: var(--text-mid); line-height: 1.6; }
+
+  #publications { background: var(--bg); }
+  .pub-year-group { margin-bottom: 2rem; }
+  .pub-year { font-family: 'DM Mono', monospace; font-size: 0.78rem; color: var(--accent); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 1rem; }
+  .pub-item { display: flex; gap: 1rem; padding: 0.85rem 0; border-bottom: 1px solid rgba(226,232,240,0.6); align-items: flex-start; }
+  .pub-item:last-child { border-bottom: none; }
+  .pub-venue-tag { flex-shrink: 0; font-family: 'DM Mono', monospace; font-size: 0.68rem; font-weight: 500; background: var(--accent-light); color: var(--accent); border-radius: 3px; padding: 0.15rem 0.45rem; margin-top: 0.2rem; min-width: 68px; text-align: center; letter-spacing: 0.02em; }
+  .pub-content { flex: 1; }
+  .pub-title { font-size: 0.9rem; font-weight: 500; color: var(--navy); line-height: 1.45; margin-bottom: 0.2rem; }
+  .pub-title a { color: inherit; text-decoration: none; }
+  .pub-title a:hover { color: var(--accent); text-decoration: underline; }
+  .pub-authors { font-size: 0.8rem; color: var(--text-mid); line-height: 1.5; }
+  .pub-authors strong { color: var(--navy); font-weight: 500; }
+  .pub-links { margin-top: 0.35rem; display: flex; gap: 0.5rem; }
+  .pub-link { font-size: 0.74rem; color: var(--accent); text-decoration: none; }
+  .pub-link:hover { text-decoration: underline; }
+  .scholar-link { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; font-size: 0.88rem; color: var(--accent); text-decoration: none; }
+  .scholar-link:hover { text-decoration: underline; }
+
+  #students { background: var(--white); }
+  .students-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; }
+  .student-card { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1.4rem; position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
+  .student-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.07); }
+  .student-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--gold); }
+  .student-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--navy), var(--accent)); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.1rem; font-weight: 500; margin-bottom: 0.9rem; font-family: 'Lora', serif; }
+  .student-name { font-family: 'Lora', serif; font-size: 0.95rem; font-weight: 500; color: var(--navy); margin-bottom: 0.2rem; }
+  .student-topic { font-size: 0.8rem; color: var(--text-mid); line-height: 1.55; margin-bottom: 0.4rem; }
+  .student-since { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--text-light); letter-spacing: 0.04em; }
+
+  #talks { background: var(--bg); }
+  .talk-item { display: grid; grid-template-columns: 110px 1fr; gap: 1rem 1.5rem; padding: 1rem 0; border-bottom: 1px solid var(--border); align-items: start; }
+  .talk-item:last-child { border-bottom: none; }
+  .talk-date { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--text-light); padding-top: 0.15rem; letter-spacing: 0.04em; }
+  .talk-title { font-size: 0.9rem; font-weight: 500; color: var(--navy); margin-bottom: 0.2rem; line-height: 1.4; }
+  .talk-venue { font-size: 0.82rem; color: var(--text-mid); }
+  .talk-badge { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.68rem; padding: 0.1rem 0.4rem; border-radius: 3px; margin-left: 0.5rem; vertical-align: middle; }
+  .talk-badge.invited { background: #fef3c7; color: #92400e; }
+  .talk-badge.keynote { background: #fee2e2; color: #991b1b; }
+
+  #teaching { background: var(--white); }
+  .courses-list { display: flex; flex-direction: column; gap: 1rem; }
+  .course-item { display: grid; grid-template-columns: 110px 1fr; gap: 0.5rem 1.5rem; padding: 1.1rem 1.3rem; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; align-items: center; }
+  .course-code { font-family: 'DM Mono', monospace; font-size: 0.78rem; color: var(--accent); font-weight: 500; letter-spacing: 0.02em; }
+  .course-name { font-size: 0.9rem; font-weight: 500; color: var(--navy); margin-bottom: 0.15rem; }
+  .course-meta { font-size: 0.8rem; color: var(--text-mid); }
+  .course-level { display: inline-block; font-size: 0.7rem; font-family: 'DM Mono', monospace; background: var(--accent-light); color: var(--accent); padding: 0.1rem 0.4rem; border-radius: 3px; margin-left: 0.4rem; }
+  .course-note { font-size: 0.82rem; color: var(--text-mid); margin-top: 1.5rem; font-style: italic; line-height: 1.65; }
+
+  footer { background: var(--navy); color: rgba(255,255,255,0.55); text-align: center; padding: 2.5rem 2rem; font-size: 0.82rem; }
+  footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+  footer a:hover { color: #fff; }
+  .footer-top { margin-bottom: 1rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+
+  @media (max-width: 720px) {
+    .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+    .hero-photo { margin: 0 auto; }
+    .hero-affiliations { align-items: center; }
+    .hero-links { justify-content: center; }
+    .hero-bio { margin: 0 auto 1.8rem; }
+    .talk-item, .course-item { grid-template-columns: 1fr; }
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 58px; left: 0; right: 0; background: var(--navy); padding: 1rem; }
+    .nav-links.open { display: flex; }
+    .nav-toggle { display: block; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#home" class="nav-brand">Themos <span>Stafylakis</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#students">Students</a></li>
+    <li><a href="#talks">Talks</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+    <li><a href="CV_Stafylakis_2026.pdf" target="_blank" style="color:var(--gold);">CV ↗</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section id="home">
+  <div class="hero-inner">
+    <div class="hero-photo">
+      <img src="data:image/jpeg;base64,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" alt="Themos Stafylakis">
+    </div>
+    <div class="hero-text">
+      <div class="hero-name">Themos Stafylakis</div>
+      <div class="hero-title">Associate Professor · Machine Learning &amp; Speech</div>
+      <div class="hero-affiliations">
+        <div class="affil">Associate Professor, Dept. of Informatics, <a href="https://www.aueb.gr/en/faculty_page/stafylakis-themos" target="_blank" style="color:rgba(255,255,255,0.85);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.3);">AUEB</a></div>
+        <div class="affil">Director, <a href="https://datascience.aueb.gr/" target="_blank" style="color:rgba(255,255,255,0.85);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.3);">MSc in AI &amp; Data Science</a> · AUEB <span style="font-size:0.78rem;opacity:0.55;">(since Jan 2025)</span></div>
+        <div class="affil">Director, <a href="https://www.dept.aueb.gr/en/cs/content/information-processing-laboratory" target="_blank" style="color:rgba(255,255,255,0.85);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.3);">Information Processing Laboratory</a> · AUEB</div>
+        <div class="affil">Conversational AI Architect, Omilia <span style="font-size:0.78rem;opacity:0.55;">(since 2018)</span></div>
+        <div class="affil">Affiliated Researcher, Archimedes / Athena Research Center</div>
+      </div>
+      <p class="hero-bio">
+        I work on machine learning for speech and audio — with a focus on speaker recognition, audiovisual speech processing, voice biometrics, and NLP. I received my PhD from NTUA (2011), held postdoctoral positions at ÉTS Montréal and CRIM (2011–2016), and at the University of Nottingham as a Marie Skłodowska-Curie Fellow (2016–2018). I was elected Associate Professor at AUEB in 2023, where I direct the Information Processing Laboratory and the MSc Programme in AI &amp; Data Science.
+      </p>
+      <div class="hero-links">
+        <a href="https://scholar.google.com/citations?user=kdEnoP0AAAAJ" target="_blank" class="hero-btn primary">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+          Google Scholar
+        </a>
+        <a href="https://www.linkedin.com/in/themos-stafylakis-18a87016/" target="_blank" class="hero-btn secondary">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="/cdn-cgi/l/email-protection#a9dddaddc8cfd0c5c8c2c0dae9c8dccccb87cedb" class="hero-btn secondary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Email
+        </a>
+        <a href="CV_Stafylakis_2026.pdf" target="_blank" class="hero-btn secondary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Download CV
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="container">
+    <div class="section-header"><span class="section-label">01 / Research</span><div class="section-line"></div></div>
+    <h2>Research Interests</h2>
+    <p class="research-intro">My research sits at the intersection of deep learning, speech processing, and biometrics. I am particularly interested in representation learning for audio and speech, with applications ranging from speaker verification to multimodal understanding. Current directions include self-supervised models for speech, parameter-efficient adaptation, and neural diarization.</p>
+    <div class="research-areas">
+      <div class="research-card"><h3>Speaker Recognition &amp; Biometrics</h3><p>Speaker embeddings, i-vectors, PLDA, end-to-end verification, voice anti-spoofing, and domain adaptation for speaker identity.</p></div>
+      <div class="research-card"><h3>Audiovisual Speech</h3><p>Lip reading, audiovisual fusion, end-to-end ASR, and multimodal models for robust speech perception.</p></div>
+      <div class="research-card"><h3>Self-Supervised Learning</h3><p>Representation learning from unlabelled speech with HuBERT, Wav2Vec 2.0, WavLM, and downstream adaptation strategies.</p></div>
+      <div class="research-card"><h3>NLP &amp; Spoken Language Understanding</h3><p>Intent classification, task-oriented dialogue, and end-to-end architectures bridging ASR and NLU.</p></div>
+      <div class="research-card"><h3>Speech Emotion Recognition</h3><p>Attentive pooling methods, label smoothing, and cross-corpus generalization for emotion and affect recognition.</p></div>
+      <div class="research-card"><h3>Neural Speaker Diarization</h3><p>End-to-end neural diarization, Perceiver-based attractor models, and overlap-aware segmentation.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="container">
+    <div class="section-header"><span class="section-label">02 / Publications</span><div class="section-line"></div></div>
+    <h2>Selected Publications</h2>
+
+    <div class="pub-year-group">
+      <div class="pub-year">2026</div>
+      <div class="pub-item">
+        <div class="pub-venue-tag">AAAI</div>
+        <div class="pub-content">
+          <div class="pub-title"><a href="https://sonalkum.github.io/mmau-pro/" target="_blank">MMAU-Pro: A Challenging and Comprehensive Benchmark for Holistic Evaluation of Audio General Intelligence</a></div>
+          <div class="pub-authors">S. Kumar, Š. Sedláček, V. Lokegaonkar, F. López, W. Yu, N. Anand, H. Ryu, L. Chen, M. Plicka, M. Hlaváček, <strong>T. Stafylakis</strong>, et al.</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://arxiv.org/pdf/2508.13992" target="_blank">[Paper]</a>
+            <a class="pub-link" href="https://sonalkum.github.io/mmau-pro/" target="_blank">[Project page]</a>
+            <a class="pub-link" href="https://github.com/sonalkum/MMAUPro" target="_blank">[Code]</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-year-group">
+      <div class="pub-year">2025</div>
+      <div class="pub-item">
+        <div class="pub-venue-tag">arXiv</div>
+        <div class="pub-content">
+          <div class="pub-title">Automatic Speech Recognition for Greek Medical Dictation</div>
+          <div class="pub-authors">V. Georgilas, <strong>T. Stafylakis</strong></div>
+          <div class="pub-links"><a class="pub-link" href="https://arxiv.org/abs/2509.23550" target="_blank">[arXiv]</a></div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-venue-tag">arXiv</div>
+        <div class="pub-content">
+          <div class="pub-title">Alpha Divergence Losses for Biometric Verification</div>
+          <div class="pub-authors">D. Koutsianos, L. Mosner, Y. Panagakis, <strong>T. Stafylakis</strong></div>
+          <div class="pub-links"><a class="pub-link" href="https://arxiv.org/abs/2511.13621" target="_blank">[arXiv]</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-year-group">
+      <div class="pub-year">2024</div>
+      <div class="pub-item">
+        <div class="pub-venue-tag">IEEE/ACM TASLP</div>
+        <div class="pub-content">
+          <div class="pub-title">DiaPer: End-to-End Neural Diarization With Perceiver-Based Attractors</div>
+          <div class="pub-authors">F. Landini, M. Díez, <strong>T. Stafylakis</strong>, L. Burget</div>
+          <div class="pub-links"><a class="pub-link" href="#" target="_blank">[Paper]</a></div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-venue-tag">ACL Findings</div>
+        <div class="pub-content">
+          <div class="pub-title">Comparing Data Augmentation Methods for End-to-End Task-Oriented Dialog Systems</div>
+          <div class="pub-authors">C. Vlachos, <strong>T. Stafylakis</strong>, I. Androutsopoulos</div>
+          <div class="pub-links"><a class="pub-link" href="#" target="_blank">[Paper]</a></div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-venue-tag">Interspeech</div>
+        <div class="pub-content">
+          <div class="pub-title">Challenging Margin-Based Speaker Embedding Extractors Using the Variational Information Bottleneck</div>
+          <div class="pub-authors"><strong>T. Stafylakis</strong>, A. Silnova, J. Rohdin, O. Plchot, L. Burget</div>
+          <div class="pub-links"><a class="pub-link" href="#" target="_blank">[Paper]</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-year-group">
+      <div class="pub-year">2023</div>
+      <div class="pub-item">
+        <div class="pub-venue-tag">EMNLP</div>
+        <div class="pub-content">
+          <div class="pub-title">A Simple Baseline for Knowledge-Based Visual Question Answering</div>
+          <div class="pub-authors">A. Xenos, <strong>T. Stafylakis</strong>, I. Patras, G. Tzimiropoulos</div>
+          <div class="pub-links"><a class="pub-link" href="#" target="_blank">[Paper]</a></div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-venue-tag">ICASSP</div>
+        <div class="pub-content">
+          <div class="pub-title">Speech-Based Emotion Recognition with Self-Supervised Models Using Attentive Channel-Wise Correlations and Label Smoothing</div>
+          <div class="pub-authors">S. Kakouros, <strong>T. Stafylakis</strong>, L. Mosner, L. Burget</div>
+          <div class="pub-links"><a class="pub-link" href="#" target="_blank">[Paper]</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-year-group">
+      <div class="pub-year">2018 — Highly Cited</div>
+      <div class="pub-item">
+        <div class="pub-venue-tag">ICASSP</div>
+        <div class="pub-content">
+          <div class="pub-title">End-to-End Audiovisual Speech Recognition</div>
+          <div class="pub-authors">S. Petridis, <strong>T. Stafylakis</strong>, P. Ma, F. Cai, G. Tzimiropoulos, M. Pantic</div>
+          <div class="pub-links"><a class="pub-link" href="https://arxiv.org/abs/1802.06424" target="_blank">[arXiv]</a></div>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-venue-tag">arXiv</div>
+        <div class="pub-content">
+          <div class="pub-title">Pushing the Boundaries of Audiovisual Word Recognition Using Residual Networks and LSTMs</div>
+          <div class="pub-authors"><strong>T. Stafylakis</strong>, M. H. Khan, G. Tzimiropoulos</div>
+          <div class="pub-links"><a class="pub-link" href="https://arxiv.org/abs/1811.01194" target="_blank">[arXiv]</a></div>
+        </div>
+      </div>
+    </div>
+
+    <a href="https://scholar.google.com/citations?user=kdEnoP0AAAAJ" target="_blank" class="scholar-link">View full publication list on Google Scholar →</a>
+  </div>
+</section>
+
+<section id="students">
+  <div class="container">
+    <div class="section-header"><span class="section-label">03 / PhD Students</span><div class="section-line"></div></div>
+    <h2>PhD Students</h2>
+    <p style="color:var(--text-mid); margin-bottom:1.8rem; font-size:0.9rem;">I am currently supervising PhD students at AUEB. If you are interested in joining the group, please get in touch by email.</p>
+    <div class="students-grid">
+      <div class="student-card">
+        <div class="student-avatar">PP</div>
+        <div class="student-name"><a href="https://archimedesai.gr/en/researchers/pavlos-poulos" target="_blank" style="color:var(--navy);text-decoration:none;">Pavlos Poulos</a></div>
+        <div class="student-topic">Brain-inspired AI — novel architectures informed by principles of neuroscience and brain function</div>
+        <div class="student-since">AUEB · Archimedes/Athena R.C.</div>
+      </div>
+      <div class="student-card">
+        <div class="student-avatar">DK</div>
+        <div class="student-name"><a href="https://archimedesai.gr/en/researchers/dimitris-koutsianos" target="_blank" style="color:var(--navy);text-decoration:none;">Dimitris Koutsianos</a></div>
+        <div class="student-topic">Audiovisual deepfakes and biometric verification</div>
+        <div class="student-since">AUEB · Archimedes/Athena R.C.</div>
+      </div>
+      <div class="student-card">
+        <div class="student-avatar">PK</div>
+        <div class="student-name"><a href="https://archimedesai.gr/en/researchers/pieris-kalligeros" target="_blank" style="color:var(--navy);text-decoration:none;">Pieris Kalligeros</a></div>
+        <div class="student-topic">Deep learning for audio and speech — building on prior work in generative models and computer vision</div>
+        <div class="student-since">AUEB · Archimedes/Athena R.C.</div>
+      </div>
+      <div class="student-card">
+        <div class="student-avatar">GP</div>
+        <div class="student-name"><a href="https://www.linkedin.com/in/giannis-prokopiou/" target="_blank" style="color:var(--navy);text-decoration:none;">Giannis Prokopiou</a></div>
+        <div class="student-topic">Machine learning and AI for music</div>
+        <div class="student-since">AUEB</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="talks">
+  <div class="container">
+    <div class="section-header"><span class="section-label">04 / Talks</span><div class="section-line"></div></div>
+    <h2>Talks &amp; Invited Lectures</h2>
+    <div class="talk-item">
+      <div class="talk-date">Jul 2024</div>
+      <div>
+        <div class="talk-title">
+          <a href="https://essai2024.di.uoa.gr/ACAI-tutorials.html" target="_blank" style="color:var(--navy);text-decoration:none;">Self-Supervised Learning for Speech: Architectures, Discrete Units &amp; Downstream Adaptation</a>
+          <span class="talk-badge invited">Invited Tutorial</span>
+        </div>
+        <div class="talk-venue">
+          <a href="https://essai2024.di.uoa.gr/" target="_blank" style="color:var(--text-mid);text-decoration:none;">ACAI / ESSAI 2024 — 21st Advanced Course on Artificial Intelligence</a>
+          &nbsp;·&nbsp; Athens, Greece
+        </div>
+      </div>
+    </div>
+    <div class="talk-item">
+      <div class="talk-date">2025</div>
+      <div>
+        <div class="talk-title">
+          <a href="https://www.youtube.com/watch?v=IuiJRz3MtxA" target="_blank" style="color:var(--navy);text-decoration:none;">Advances in Speaker Recognition &amp; Discrete Audio Tokens</a>
+          <span class="talk-badge invited">Invited</span>
+        </div>
+        <div class="talk-venue">
+          <a href="https://poonehmousavi.github.io/rg.html" target="_blank" style="color:var(--text-mid);text-decoration:none;">Conversational AI Reading Group</a>
+          — Mila / Concordia University, Montréal &nbsp;·&nbsp;
+          <a href="https://www.youtube.com/watch?v=IuiJRz3MtxA" target="_blank" style="color:var(--accent);font-size:0.78rem;text-decoration:none;">▶ Recording</a>
+        </div>
+      </div>
+    </div>
+    <div class="talk-item">
+      <div class="talk-date">2024–present</div>
+      <div>
+        <div class="talk-title">
+          <a href="https://athnlp.github.io/" target="_blank" style="color:var(--navy);text-decoration:none;">Athens NLP Summer School (AthNLP)</a>
+          <span class="talk-badge" style="background:#e0f2fe;color:#0369a1;">Co-organizer</span>
+        </div>
+        <div class="talk-venue">Annual summer school on Natural Language Processing &amp; Machine Learning — Athens, Greece &nbsp;·&nbsp; Editions: 2024, 2025, 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="teaching">
+  <div class="container">
+    <div class="section-header"><span class="section-label">05 / Teaching</span><div class="section-line"></div></div>
+    <h2>Teaching</h2>
+    <p style="color:var(--text-mid); margin-bottom:1.8rem; font-size:0.9rem;">Courses at the Department of Informatics, Athens University of Economics and Business.</p>
+    <div class="courses-list">
+      <div class="course-item">
+        <div class="course-code">Undergraduate</div>
+        <div>
+          <div class="course-name">Signals, Systems &amp; Digital Signal Processing <span class="course-level">BSc</span></div>
+          <div class="course-meta">Department of Informatics · AUEB</div>
+        </div>
+      </div>
+      <div class="course-item">
+        <div class="course-code">Undergraduate</div>
+        <div>
+          <div class="course-name">Machine Learning <span class="course-level">BSc</span></div>
+          <div class="course-meta">Department of Informatics · AUEB</div>
+        </div>
+      </div>
+      <div class="course-item">
+        <div class="course-code">Postgraduate</div>
+        <div>
+          <div class="course-name">Deep Learning <span class="course-level">MSc</span></div>
+          <div class="course-meta">Department of Informatics · AUEB</div>
+        </div>
+      </div>
+    </div>
+    <p class="course-note">
+      Previously also taught "Speech Synthesis and Recognition" and "Dialog Systems" at the Interdisciplinary MSc Programme in Language Technology, National and Kapodistrian University of Athens, in collaboration with the Institute for Language and Speech Processing (ILSP / "Athena" R.C.) — 2022–2024.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <a href="/cdn-cgi/l/email-protection#88fcfbfce9eef1e4e9e3e1fbc8e9fdedeaa6effa"><span class="__cf_email__" data-cfemail="6317101702051a0f02080a1023021606014d0411">[email&#160;protected]</span></a>
+    <a href="https://scholar.google.com/citations?user=kdEnoP0AAAAJ" target="_blank">Google Scholar</a>
+    <a href="https://www.linkedin.com/in/themos-stafylakis-18a87016/" target="_blank">LinkedIn</a>
+    <a href="https://www.aueb.gr/en/faculty_page/stafylakis-themos" target="_blank">AUEB Profile</a>
+  </div>
+  <div>Dept. of Informatics · Athens University of Economics &amp; Business · 76 Patission Str., Athens 10434</div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  
